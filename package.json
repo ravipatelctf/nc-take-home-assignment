@@ -1,0 +1,10 @@
+{
+  "name": "nc-take-home-assignment",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NC Take Home Assignment - Investment Platform",
+  "packageManager": "pnpm@10.20.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
