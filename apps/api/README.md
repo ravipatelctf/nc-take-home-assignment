@@ -159,6 +159,8 @@ ENABLE_CRON=false
 
 Environment files must not be committed to version control.
 
+---
+
 ## Running Locally
 
 From the repository root:
@@ -174,6 +176,8 @@ The server will start on:
 http://localhost:3000
 ```
 
+---
+
 ## Deployment Overview
 
 ### Backend
@@ -186,6 +190,8 @@ http://localhost:3000
 * Deployed separately on Vercel
 * Communicates with the backend via an environment-based API URL
 
+---
+
 ## Testing
 
 APIs can be tested using:
@@ -195,6 +201,8 @@ APIs can be tested using:
 * The frontend dashboard
 
 Test credentials are displayed on the frontend UI for demonstration purposes.
+
+---
 
 ## Design Principles
 
