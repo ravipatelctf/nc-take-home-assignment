@@ -28,7 +28,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow w-80"
@@ -55,6 +55,11 @@ export default function Login() {
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>
+      <div className="mt-6 text-sm bg-yellow-100 p-3 rounded">
+        <p className="font-semibold mb-1">Test Credentials</p>
+        <p>Email: <b>alice@test.com</b></p>
+        <p>Password: <b>password123</b></p>
+      </div>
     </div>
   )
 }
