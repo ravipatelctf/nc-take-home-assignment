@@ -15,15 +15,11 @@ export default function Navbar() {
         NC Investment Dashboard
       </Link>
 
-      <div className="flex gap-4">
-        {token && (
+      <div className="flex gap-4 items-center">
+        {token ? (
           <>
             <Link to="/" className="hover:underline">
               Dashboard
-            </Link>
-
-            <Link to="/register" className="hover:underline">
-              Register
             </Link>
 
             <button
@@ -33,6 +29,10 @@ export default function Navbar() {
               Logout
             </button>
           </>
+        ) : (
+          <Link to="/login" className="hover:underline">
+            Login / Register
+          </Link>
         )}
       </div>
     </nav>

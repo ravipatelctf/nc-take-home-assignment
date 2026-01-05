@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import api from "../api/axios"
+import RoiChart from "../components/RoiChart"
 
 function StatCard({ label, value }) {
   return (
@@ -13,6 +14,21 @@ function StatCard({ label, value }) {
 export default function Dashboard() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [dailyROI, setDailyROI] = useState(0)
+  const [roiHistory, setRoiHistory] = useState([])
+
+  useEffect(() => {
+    Promise.all([
+      api.get("/dashboard"),
+      api.get("/dashboard/daily-roi"),
+      api.get("/dashboard/roi-history"),
+    ]).then(([dash, daily, history]) => {
+      setData(dash.data)
+      setDailyROI(daily.data.dailyROI)
+      setRoiHistory(history.data)
+      setLoading(false)
+    })
+  }, [])
 
   useEffect(() => {
     api
@@ -42,6 +58,7 @@ export default function Dashboard() {
           label="Referral Income"
           value={data.totalReferralIncome}
         />
+        <StatCard label="Today's ROI" value={dailyROI} />
       </div>
 
       {/* Investments Table */}
@@ -66,6 +83,7 @@ export default function Dashboard() {
             ))}
           </tbody>
         </table>
+        <RoiChart data={roiHistory} />
       </div>
     </div>
   )
